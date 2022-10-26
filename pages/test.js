@@ -2,7 +2,7 @@ import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import {daysInYear} from 'date-fns'
 
-export default function Test() {
+export default function Test({someData = 'no data'}) {
   return (
     <div className={styles.container}>
       <Head>
@@ -15,7 +15,22 @@ export default function Test() {
         <h1 className={styles.title}>
           Test Page: Number of days in the year is {daysInYear}
         </h1>
+        <p>Some data: {someData}</p>
       </main>
     </div>
   )
+}
+
+export async function getStaticProps(context) {
+  let someData = null
+
+  if (context?.previewData) {
+    someData = context.previewData.someData
+  }
+
+  return {
+    props: {
+      someData
+    },
+  }
 }
