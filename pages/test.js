@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import Link from 'next/link'
 import styles from '../styles/Home.module.css'
 import {daysInYear} from 'date-fns'
 
@@ -14,9 +13,8 @@ export default function Test() {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Main Page: Number of days in the year is {daysInYear}
+          Test Page: Number of days in the year is {daysInYear}
         </h1>
-        <Link href="/test">Test Page</Link>
       </main>
     </div>
   )
